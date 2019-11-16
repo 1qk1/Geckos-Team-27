@@ -18,7 +18,7 @@ const newHome = async (req, res) => {
 };
 
 const homeById = async (req, res) => {
-  const home = await Home.findById({ _id: req.params.id }).then(home => home);
+  const home = await Home.findById(req.params.id).then(home => home);
   res.json(home);
 };
 
