@@ -2,7 +2,6 @@ const passport = require("passport");
 const bcrypt = require("bcrypt");
 const LocalStrategy = require("passport-local").Strategy;
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
-const keys = require("../../key");
 const User = require("../models/user");
 const { formatDate } = require("../utils");
 

@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import mapboxgl, { Popup } from "mapbox-gl";
-import { mapboxKey } from "../../key";
 import "./Map.css";
 import ReactDOMServer from "react-dom/server";
 import CustomMarker from "../UI/Marker/Marker";
 import MarkerSummary from "../UI/Marker/MarkerSummary/MarkerSummary";
 import DOMPurify from "dompurify";
 
-mapboxgl.accessToken = mapboxKey;
+mapboxgl.accessToken = process.env.REACT_APP_MAPBOXKEY;
 
 class Map extends Component {
   state = {

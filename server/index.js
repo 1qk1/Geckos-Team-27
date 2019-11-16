@@ -6,12 +6,15 @@ const MongoStore = require("connect-mongo")(session);
 const bodyParser = require("body-parser");
 const passportSetup = require("./services/passport");
 const passport = require("passport");
-const keys = require("../key");
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
 const homeRoutes = require("./routes/home");
 const reviewRoutes = require("./routes/review");
 const referenceRoutes = require("./routes/reference");
+
+require("dotenv").config();
+
+console.log(process.env.MONGO_URI);
 
 const app = express();
 // body parser middleware
@@ -20,7 +23,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 // connect to mongodb
-const db = keys.mongoURI;
+const db = process.env.MONGO_URI;
 mongoose
   .connect(db)
   .then(() => console.log("mongo connected...fireworks!"))
@@ -29,7 +32,7 @@ mongoose
 app.use(
   session({
     name: "geckos-bnb-cookie",
-    secret: keys.session.cookieKey,
+    secret: process.env.COOKIE_KEY,
     store: new MongoStore({
       mongooseConnection: mongoose.connection,
       // debug for 30 mins: later 7 days

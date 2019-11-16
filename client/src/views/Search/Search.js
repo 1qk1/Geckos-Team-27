@@ -9,7 +9,6 @@ import Map from "../../components/Map/Map";
 import ToggleMap from "../../components/Map/ToggleMap";
 import { queryToLocation, returnFilters } from "../../utils";
 import "./Search.css";
-import { mapboxKey } from "../../key";
 
 class Search extends Component {
   state = {
@@ -150,7 +149,7 @@ class Search extends Component {
     const location = queryToLocation(this.props.location.search);
     axios
       .get(
-        `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=${mapboxKey}`
+        `https://api.mapbox.com/geocoding/v5/mapbox.places/${location}.json?access_token=${process.env.REACT_APP_MAPBOXKEY}`
       )
       .then(res => {
         const mapCenter = {
@@ -189,14 +188,13 @@ class Search extends Component {
               mapBtnPortal
             )}
 
-          {showMap &&
-            mapCenter && (
-              <Map
-                newCenter={mapCenter}
-                hover={this.state.hover}
-                filteredHomes={this.state.filteredHomes}
-              />
-            )}
+          {showMap && mapCenter && (
+            <Map
+              newCenter={mapCenter}
+              hover={this.state.hover}
+              filteredHomes={this.state.filteredHomes}
+            />
+          )}
         </div>
       </Fragment>
     );
