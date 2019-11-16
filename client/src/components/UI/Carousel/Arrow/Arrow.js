@@ -10,7 +10,11 @@ const Arrow = ({
   onClick,
   className
 }) => (
-  <div className={`arrow arrow-${direction} ${className}`}>
+  <div
+    className={`arrow arrow-${direction} ${
+      direction === "left" ? "hidden" : ""
+    } ${className}`}
+  >
     <span className="arrow-span">
       <button type="button" className={"arrow-button"} onClick={onClick}>
         <svg className={"arrow-svg"} viewBox="0 0 11.86 19.79">
