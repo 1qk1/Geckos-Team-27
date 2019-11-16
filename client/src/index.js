@@ -5,6 +5,9 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/es/integration/react";
 import configureStore from "./redux/configureStore";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:4000/api";
 
 const { store, persistor } = configureStore();
 

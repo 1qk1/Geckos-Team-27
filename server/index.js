@@ -52,5 +52,15 @@ app.use(homeRoutes);
 app.use(reviewRoutes);
 app.use(referenceRoutes);
 
-const port = 4000;
+if (process.env.NODE_ENV === "production") {
+  const path = require("path");
+
+  app.use(express.static(path.join(__dirname, "/client")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "/client/index.html"));
+  });
+}
+
+const port = process.env.PORT || 4000;
 app.listen(port, () => console.log(`listening on port ${port}`));
