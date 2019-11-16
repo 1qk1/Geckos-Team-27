@@ -7,7 +7,10 @@ import { PersistGate } from "redux-persist/es/integration/react";
 import configureStore from "./redux/configureStore";
 import axios from "axios";
 
-axios.defaults.baseURL = `http://localhost:${PORT || 4000}/api`;
+axios.defaults.baseURL = `http://localhost:4000/api`;
+if (process.env.NODE_ENV === "production") {
+  axios.defaults.baseURL = `/api`;
+}
 
 const { store, persistor } = configureStore();
 
