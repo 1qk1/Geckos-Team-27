@@ -56,8 +56,9 @@ class HomeListing extends Component {
       users: { user },
       reviews: { reviews }
     } = this.props;
+    console.log(home);
     const { carouselListings } = this.state;
-    if (isEmpty(home) || isEmpty(reviews) || isEmpty(user)) {
+    if (isEmpty(home) || isEmpty(user)) {
       return null;
     }
     return (
@@ -65,15 +66,8 @@ class HomeListing extends Component {
         <Toggle>
           {({ on, toggle }) => (
             <Fragment>
-              {!on && (
-                <HeroImg
-                  image={home.images[0].split(",")[0]}
-                  onClick={toggle}
-                />
-              )}
-              {on && (
-                <Album toggle={toggle} images={home.images[0].split(",")} />
-              )}
+              {!on && <HeroImg image={home.images[0]} onClick={toggle} />}
+              {on && <Album toggle={toggle} images={home.images} />}
             </Fragment>
           )}
         </Toggle>
