@@ -14,8 +14,6 @@ const referenceRoutes = require("./routes/reference");
 
 require("dotenv").config();
 
-console.log(process.env.MONGO_URI);
-
 const app = express();
 // body parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
