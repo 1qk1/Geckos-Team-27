@@ -1,14 +1,12 @@
 .Listings {
   padding-top: 1rem;
   display: flex;
-  justify-content: space-between;
 }
 
 .Listings-Results {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  flex: 1 0 50%;
+  flex: 1 0 250px;
 }
 
 .map-error {

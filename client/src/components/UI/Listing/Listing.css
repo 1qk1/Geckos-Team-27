@@ -68,9 +68,9 @@
 }
 
 @media (max-width: 1440px) {
-  .listing {
+  /* .listing {
     width: auto;
-  }
+  } */
   .listing-img {
     height: calc(20vw);
     width: calc(25.5vw);
