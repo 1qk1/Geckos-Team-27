@@ -33,23 +33,6 @@ class LoginForm extends Component {
     return (
       <div>
         <div className="AuthModal">
-          <Button
-            text="Log in using Facebook"
-            onClick={() => {
-              console.log("xd");
-            }}
-            icon="fab fa-facebook"
-            btnClass="Form-Button Button-Blue"
-          />
-          <Button
-            text="Log in using Google"
-            onClick={() => {
-              console.log("xd");
-            }}
-            icon="fab fa-google"
-            btnClass="Form-Button Button-White"
-          />
-          <hr />
           <form onSubmit={this.onSubmit}>
             <Input
               name="email"

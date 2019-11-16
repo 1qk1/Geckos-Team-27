@@ -22,23 +22,23 @@ router.post("/api/login", auth.login);
     @desc Login user via Google
     @access private
 */
-router.get(
-  "/auth/google",
-  passport.authenticate("google", {
-    scope: ["profile", "email"]
-  })
-);
+// router.get(
+//   "/auth/google",
+//   passport.authenticate("google", {
+//     scope: ["profile", "email"]
+//   })
+// );
 
 /*
   @route GET /auth/google/redirect
   @desc redirect google callback
   @access private
 */
-router.get(
-  "/auth/google/redirect",
-  passport.authenticate("google"),
-  auth.google_redirect
-);
+// router.get(
+//   "/auth/google/redirect",
+//   passport.authenticate("google"),
+//   auth.google_redirect
+// );
 
 /*
   @route GET /api/current_user 
