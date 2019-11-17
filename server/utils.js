@@ -38,21 +38,6 @@ function monthToNum(month) {
 }
 
 /*
-  getPingInterval()
-    get interval to ping the heroku app so server doesn't sleep
-    leave 8 hours in the night to sleep because it's not needed
-    to be awake at that time
-*/
-function getPingInterval() {
-  const hoursNow = new Date().getUTCHours();
-  if (hoursNow >= 12 || hoursNow <= 8) {
-    return 28800000;
-  } else {
-    return (Math.floor(Math.random() * 14) + 10) * 60000;
-  }
-}
-
-/*
   Array to Object fn()
   @param: array & string 'keyField'
     example: take an array such as...
