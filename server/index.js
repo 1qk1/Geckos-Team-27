@@ -11,6 +11,7 @@ const userRoutes = require("./routes/user");
 const homeRoutes = require("./routes/home");
 const reviewRoutes = require("./routes/review");
 const referenceRoutes = require("./routes/reference");
+const pingmydyno = require("pingmydyno");
 
 require("dotenv").config();
 
@@ -63,4 +64,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const port = process.env.PORT || 4000;
-app.listen(port, () => console.log(`listening on port ${port}`));
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
+  pingmydyno("http://geckobnb.herokuapp.com/");
+});
