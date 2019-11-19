@@ -4,7 +4,6 @@
   "description": "an AirBnb clone with Geckos",
   "main": "./server/index.js",
   "scripts": {
-    "precommit": "lint-staged",
     "client": "npm start --prefix client",
     "dev:server": "nodemon ./server/index.js",
     "dev": "concurrently \"npm run dev:server\" \"npm run client\"",
@@ -48,5 +47,10 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "precommit": "lint-staged"
+    }
   }
 }
