@@ -58,6 +58,5 @@ const arrayToObject = (array, keyField) =>
 module.exports = {
   arrayToObject,
   formatDate,
-  catchErrors,
-  getPingInterval
+  catchErrors
 };
